@@ -81,8 +81,23 @@ if ('reset' in form):
 
 
 else:
-    print "Location: /cgi-bin/index.cgi"
+    print "Content-Type: text/html"
     print
+    print '''
+        <html>
+        <head>
+            <title>CSCI 4140 Assignment 1 -- Instagram -- Cancel</title>
+            <meta http-equiv="refresh" content="1;url=/cgi-bin/index.cgi" />
+            <link rel="stylesheet" href="/css/bootstrap.min.css">
+            <link rel="stylesheet" href="/css/pagination.css">
+        </head>
+        <body>
+        <div class="container">
+            Reset Cancel
+        </div>
+        </body>
+        </html>
+    '''
 
 cursor.close()
 conn.close()

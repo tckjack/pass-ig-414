@@ -100,7 +100,7 @@ else:
                 <br>
                 <div class="row">
         '''
-        print '<br><img id="im" src="%s"/>' %(os.path.join(readDir, fn + ext))
+        print '<br><img id="im" src="%s" style="width:200px"/>' %(os.path.join(readDir, fn + ext))
         print '''
                 </div>
                 <div class="row">

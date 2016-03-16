@@ -110,7 +110,7 @@ elif ('finish' in form):
                 <div class="row">
         '''
         print readPath , savePath
-        print '<br><img id="im" src="%s" />' %(os.path.join(readFinishDir, fn+ext))
+        print '<br><img id="im" src="%s" style="width:500px"/>' %(os.path.join(readFinishDir, fn+ext))
         print '''
                 </div>
                 <div class="row">
@@ -159,7 +159,7 @@ elif ('edit' in form):
                 <div class="col-sm-6">
     '''
 
-    print '<br><img id="im" src="%s" width="500px"/>' %(os.path.join(readDir, newfn + ext))
+    print '<br><img id="im" src="%s" style="width:500px"/>' %(os.path.join(readDir, newfn + ext))
     print '''
                 </div>
                 <div class="col-sm-6">
@@ -224,7 +224,7 @@ elif ('filter' in form):
     outpath = os.path.join(saveDir,newfn + ext)
     if (filter_type == "border"):
         result = image_process.border(inpath,outpath)
-        if(result != "Error"):
+        if(result == "Success"):
             query2 = "INSERT INTO edit(name,step,edit_name,ext) VALUES (\"%s\",\"%s\",\"%s\",\"%s\")" %(fn,int(step)+1,fn+'_'+str(int(step)+1),ext)
             # print query
             cursor.execute(query2)
@@ -263,8 +263,7 @@ elif ('filter' in form):
             conn.commit()
 
     if (result != "Success"):
-        print "Content-Type: text/html"
-        print
+
         print "Error<br>"
         print result
 
@@ -282,7 +281,7 @@ elif ('filter' in form):
                     <div class="col-sm-6">
         '''
         # print inpath , outpath
-        print '<br><img id="im" src="%s" width="500px"/>' %(os.path.join(readDir, newfn +ext))
+        print '<br><img id="im" src="%s" style="width:500px"/>' %(os.path.join(readDir, newfn +ext))
         print '''
                     </div>
                     <div class="col-sm-6">
@@ -358,7 +357,7 @@ elif ('undo' in form):
                 <div class="col-sm-6">
     '''
 
-    print '<br><img id="im" src="%s" width="500px"/>' %(os.path.join(readDir, filename))
+    print '<br><img id="im" src="%s" style="width:500px"/>' %(os.path.join(readDir, filename))
     print '''
                 </div>
                 <div class="col-sm-6">
@@ -435,7 +434,7 @@ else:
                 <div class="col-sm-6">
     '''
 
-    print '<br><img id="im" src="%s" width="500px"/>' %(os.path.join(readDir, filename))
+    print '<br><img id="im" src="%s" style="width:500px"/>' %(os.path.join(readDir, filename))
     print '''
                 </div>
                 <div class="col-sm-6">

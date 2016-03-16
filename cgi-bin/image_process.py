@@ -26,7 +26,7 @@ def discard(filename):
     subprocess.call(cmd, shell=True)
 
 def border(inpath , outpath):
-    cmd = ["convert",inpath,"-bordercolor","black","-border","10",outpath]
+    cmd = ["convert",inpath,"-bordercolor","black","-border","1",outpath]
     # cmd = ["convert",inpath,"-channel","R","-level","33%","-channel","G","-level","33%",outpath]
 
     p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -34,7 +34,7 @@ def border(inpath , outpath):
     # return (out, err)
     if(len(err) == 0):
         error = "Success"
-        return
+        return error
     else:
         error = err
         return error
@@ -48,7 +48,7 @@ def lomo(inpath , outpath):
     # return (out, err)
     if(len(err) == 0):
         error = "Success"
-        return
+        return error
     else:
         error = err
         return error
@@ -84,7 +84,7 @@ def blackWhite(inpath , outpath):
     # return (out, err)
     if(len(err) == 0):
         resize = width + "x" + height
-        print resize
+        # print resize
         cmd2 = ["convert", "/var/www/html/filter/bwgrad.png", "-resize" , resize, "/var/www/html/tmp/tmp.png"]
         q = subprocess.Popen(cmd2, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         (out2, err2) = q.communicate()

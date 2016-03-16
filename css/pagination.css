@@ -51,6 +51,9 @@ ul.pagination li a:hover:not(.active) {
   top: 10%;
   display: inline;
   position: relative;
-  width: 80%;
-  height: 80%;
+}
+
+.disabled {
+    pointer-events:none;
+    opacity:0.6;
 }

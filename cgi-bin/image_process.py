@@ -12,7 +12,7 @@ def identify(filename):
     if(len(err) == 0):
         return out
     else:
-        return err
+        return "Error"
 
 def getinfo(filename):
     info = identify(filename)
@@ -26,7 +26,7 @@ def discard(filename):
     subprocess.call(cmd, shell=True)
 
 def border(inpath , outpath):
-    cmd = ["convert",inpath,"-bordercolor","black","-border","1",outpath]
+    cmd = ["convert",inpath,"-bordercolor","black","-border","10",outpath]
     # cmd = ["convert",inpath,"-channel","R","-level","33%","-channel","G","-level","33%",outpath]
 
     p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -119,5 +119,28 @@ def blur(inpath , outpath):
         error = err
         return error
 
+def top(inpath , outpath, fontsize ,font,text):
+    cmd = ["convert",inpath, "-background", "red", "-pointsize", fontsize ,"-font" ,font, "label:"+text, "+swap", "-gravity" ,"center", "-append", outpath]
+    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    (out, err) = p.communicate()
+    # return (out, err)
+    if(len(err) == 0):
+        error = "Success"
+        return error
+    else:
+        error = err
+        return error
+
+def bottom(inpath , outpath, fontsize ,font,text):
+    cmd = ["convert",inpath, "-background", "red", "-pointsize", fontsize ,"-font" ,font, "label:"+text, "-gravity" ,"center", "-append", outpath]
+    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    (out, err) = p.communicate()
+    # return (out, err)
+    if(len(err) == 0):
+        error = "Success"
+        return error
+    else:
+        error = err
+        return error
 
 

@@ -113,6 +113,7 @@ elif ('finish' in form):
         print '<br><img id="im" src="%s" style="width:500px"/>' %(os.path.join(readFinishDir, fn+ext))
         print '''
                 </div>
+                <hr>
                 <div class="row">
                     <form method="post" action="index.cgi">
                         Permalink: <span class="btn btn-default btn-file"> %s <input type="input" name="edit" disabled></span>'
@@ -180,12 +181,17 @@ elif ('edit' in form):
                         <hr>
                         <form method="post" action="edit.cgi">
                             Annotate:&nbsp;&nbsp;&nbsp;&nbsp;
-                            Message <input type="text" name="message" value="Message"/>
+                            <input type="text" name="message" value="Message" required/>
                             <br>
                             <br>
-                            Font Type
+                            Font Type <select name="font" required>
+                                        <option value="Helvetica">Helvetica</option>
+                                        <option value="Times-Roman">Times</option>
+                                        <option value="Courier">Courier</option>
+                                      </select>
+
                             <br>
-                            Font Size
+                            Font Size <input type="number" name="size" value="10-48" min="10" max="48" required/>
                             <br>
                             <span class="btn btn-default btn-file"> Annotate Top <input type="submit" name="filter" value="top"></span>
                             &nbsp;&nbsp;
@@ -262,6 +268,29 @@ elif ('filter' in form):
             cursor.execute(query2)
             conn.commit()
 
+    elif(filter_type == "top"):
+        text = form['message'].value
+        fontsize = form['size'].value
+        font = form['font'].value
+
+        result = image_process.top(inpath , outpath, fontsize ,font,text)
+        if(result == "Success"):
+            query2 = "INSERT INTO edit(name,step,edit_name,ext) VALUES (\"%s\",\"%s\",\"%s\",\"%s\")" %(fn,int(step)+1,fn+'_'+str(int(step)+1),ext)
+            # print query
+            cursor.execute(query2)
+            conn.commit()
+
+    elif(filter_type == "bottom"):
+        text = form['message'].value
+        fontsize = form['size'].value
+        font = form['font'].value
+        result = image_process.bottom(inpath , outpath, fontsize ,font,text)
+        if(result == "Success"):
+            query2 = "INSERT INTO edit(name,step,edit_name,ext) VALUES (\"%s\",\"%s\",\"%s\",\"%s\")" %(fn,int(step)+1,fn+'_'+str(int(step)+1),ext)
+            # print query
+            cursor.execute(query2)
+            conn.commit()
+
     if (result != "Success"):
 
         print "Error<br>"
@@ -303,12 +332,17 @@ elif ('filter' in form):
                             <hr>
                             <form method="post" action="edit.cgi">
                                 Annotate:&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="text" name="message" value="Message"/>
+                                <input type="text" name="message" value="Message" required/>
                                 <br>
                                 <br>
-                                Font Type
+                                Font Type <select name="font" required>
+                                            <option value="Helvetica">Helvetica</option>
+                                            <option value="Times-Roman">Times</option>
+                                            <option value="Courier">Courier</option>
+                                      </select>
+
                                 <br>
-                                Font Size
+                                Font Size <input type="number" name="size" value="10-48" min="10" max="48" required/>
                                 <br>
                                 <span class="btn btn-default btn-file"> Annotate Top <input type="submit" name="filter" value="top"></span>
                                 &nbsp;&nbsp;
@@ -378,12 +412,16 @@ elif ('undo' in form):
                         <hr>
                         <form method="post" action="edit.cgi">
                             Annotate:&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="text" name="message" value="Message"/>
+                            <input type="text" name="message" value="Message" required/>
                             <br>
                             <br>
-                            Font Type
+                            Font Type <select name="font" required>
+                                        <option value="Helvetica">Helvetica</option>
+                                        <option value="Times-Roman">Times</option>
+                                        <option value="Courier">Courier</option>
+                                      </select>
                             <br>
-                            Font Size
+                            Font Size <input type="number" name="size" value="10-48" min="10" max="48" required/>
                             <br>
                             <span class="btn btn-default btn-file"> Annotate Top <input type="submit" name="filter" value="top"></span>
                             &nbsp;&nbsp;
@@ -458,9 +496,12 @@ else:
                             <input type="text" name="message" value="Message"/>
                             <br>
                             <br>
-                            Font Type
+                            Font Type <select name="font" required>
+                                        <option value="Helvetica">Helvetica</option>
+                                        <option value="Times-Roman">Times</option>
+                                        <option value="Courier">Courier</option>
                             <br>
-                            Font Size
+                            Font Size <input type="number" name="size" value="10-48" min="10" max="48" required/>
                             <br>
                             <span class="btn btn-default btn-file"> Annotate Top <input type="submit" name="filter" value="top"></span>
                             &nbsp;&nbsp;

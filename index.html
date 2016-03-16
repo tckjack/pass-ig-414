@@ -1,0 +1,91 @@
+<html>
+
+<head>
+  <title>CSCI 4140 Assignment 1 -- Instagram</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/pagination.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row" align="right">
+      <br>
+      <form class="resume" action="cgi-bin/upload.cgi" method="post">
+        <input type="hidden" name="edit" value="resume"/>
+        <span class="btn btn-default btn-file">Resume<input type="submit"/></span>
+      </form>
+      <hr>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <br>
+        <a href="images/369.gif"><img src="images/369.gif" alt="#" height="200" width="200" /></a>
+        <br>
+      </div>
+      <div class="col-sm-3">
+        <br>
+        <a href="images/angry.gif"><img src="images/angry.gif" alt="#" height="200" width="200" /></a>
+        <br>
+      </div>
+      <div class="col-sm-3">
+        <br>
+        <a href="images/plastic.gif"><img src="images/plastic.gif" alt="#" height="200" width="200" /></a>
+        <br>
+      </div>
+      <div class="col-sm-3">
+        <br>
+        <a href="images/smile.gif"><img src="images/smile.gif" alt="#" height="200" width="200" /></a>
+        <br>
+      </div>
+      <div class="col-sm-3">
+        <br>
+        <a href="images/ooo.gif"><img src="images/ooo.gif" alt="#" height="200" width="200" /></a>
+        <br>
+      </div>
+      <div class="col-sm-3">
+        <br>
+        <a href="images/xp.gif"><img src="images/xp.gif" alt="#" height="200" width="200" /></a>
+        <br>
+      </div>
+      <div class="col-sm-3">
+        <br>
+        <a href="images/happy3.gif"><img src="images/happy3.gif" alt="#" height="200" width="200" /></a>
+        <br>
+      </div>
+      <div class="col-sm-3">
+        <br>
+        <a href="images/xmas_question.png"><img src="images/xmas_question.png" alt="#" height="200" width="200" /></a>
+        <br>
+      </div>
+      <div class="col-sm-12">
+        <br>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="col-sm-12">
+      <br>
+      <div id="page">
+        <ul class="pagination">
+          <li><a href="#">❮</a></li>
+          <li><a href="#">page 1 of 1</a></li>
+          <li><a href="#">❯</a></li>
+        </ul>
+      </div>
+      <hr>
+      <div id="upload">
+        <br>
+        <form enctype="multipart/form-data" action="cgi-bin/upload.cgi" method="post">
+          Please upload an image:
+          <span class="btn btn-default btn-file">Browse<input type="file" name="pic" accept="image/gif, image/jpeg, image/png"></span>
+          <span class="btn btn-default btn-file">Upload<input type="submit"></span>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

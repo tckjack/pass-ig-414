@@ -1,0 +1,56 @@
+div#page {
+  text-align: center;
+}
+ul.pagination {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+ul.pagination li {
+  display: inline;
+  text-align: center;
+}
+ul.pagination li a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+  font-size: 18px;
+}
+ul.pagination li a.active {
+  background-color: #eee;
+  color: black;
+  border: 1px solid #ddd;
+}
+ul.pagination li a:hover:not(.active) {
+  background-color: #ddd;
+}
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+#im {
+  top: 10%;
+  display: inline;
+  position: relative;
+  width: 80%;
+  height: 80%;
+}

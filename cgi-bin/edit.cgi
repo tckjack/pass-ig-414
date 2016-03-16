@@ -109,7 +109,7 @@ elif ('finish' in form):
             <div class="container">
                 <div class="row">
         '''
-        print readPath , savePath
+        # print readPath , savePath
         print '<br><img id="im" src="%s" style="width:500px"/>' %(os.path.join(readFinishDir, fn+ext))
         print '''
                 </div>
@@ -365,7 +365,7 @@ elif ('undo' in form):
                     <div class="upload">
                         <form method="post" action="edit.cgi">
                             Filter:&nbsp;&nbsp;&nbsp;&nbsp;
-                            <span class="btn btn-default btn-file"> Borader <input type="submit" name="filter" value="boader"></span>
+                            <span class="btn btn-default btn-file"> Border <input type="submit" name="filter" value="border"></span>
                             &nbsp;&nbsp;
                             <span class="btn btn-default btn-file"> Lomo <input type="submit" name="filter" value="lomo"></span>
                             &nbsp;&nbsp;
@@ -442,7 +442,7 @@ else:
                     <div class="upload">
                         <form method="post" action="edit.cgi">
                             Filter:&nbsp;&nbsp;&nbsp;&nbsp;
-                            <span class="btn btn-default btn-file"> Borader <input type="submit" name="filter" value="boader"></span>
+                            <span class="btn btn-default btn-file"> Border <input type="submit" name="filter" value="border"></span>
                             &nbsp;&nbsp;
                             <span class="btn btn-default btn-file"> Lomo <input type="submit" name="filter" value="lomo"></span>
                             &nbsp;&nbsp;

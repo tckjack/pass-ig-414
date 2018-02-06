@@ -24,6 +24,6 @@ url = 'http://localhost:{0}/{1}'.format(PORT, script_path)
 
 webbrowser.open_new_tab(url)
 
-print "serving at", url
+print "serving at ", url
 
 httpd.serve_forever()
